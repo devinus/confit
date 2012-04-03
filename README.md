@@ -1,5 +1,5 @@
-Confit - A configuration preserver
-==================================
+Confit - An Erlang configuration preserver
+==========================================
 
 Confit allows you to parse and store configuration values for your
 applications to use during runtime.
