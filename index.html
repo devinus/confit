@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Confit : An Erlang configuration preserver" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Confit</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/devinus/confit">Fork Me on GitHub</a>
+
+          <h1 id="project_title">Confit</h1>
+          <h2 id="project_tagline">An Erlang configuration preserver</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/devinus/confit/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/devinus/confit/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>Confit allows you to parse and store configuration values for your
+applications to use during runtime.</p>
+
+<h1>Usage</h1>
+
+<div class="highlight">
+<pre><span class="nn">confit</span><span class="p">:</span><span class="n">start_link</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="s">"foo.config"</span><span class="p">),</span>
+<span class="nv">Username</span> <span class="o">=</span> <span class="nn">confit</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="n">database</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+</pre>
+</div>
+
+
+<h2>Parsing other configuration formats</h2>
+
+<p>Create a module to parse your configuration format and make sure it exports
+a function <code>parse_file/1</code> that returns <code>{ok, Proplist}</code>. The <code>confit_parser</code>
+behaviour specifies the interface. See <code>confit_term_parser.erl</code>.</p>
+
+<p>For example, to use <a href="https://github.com/devinus/zucchini">Zucchini</a>:</p>
+
+<div class="highlight">
+<pre><span class="nn">confit</span><span class="p">:</span><span class="n">start_link</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="n">zucchini</span><span class="p">,</span> <span class="s">"foo.ini"</span><span class="p">),</span>
+<span class="nv">Username</span> <span class="o">=</span> <span class="nn">confit</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="n">database</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+</pre>
+</div>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Confit maintained by <a href="https://github.com/devinus">devinus</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
